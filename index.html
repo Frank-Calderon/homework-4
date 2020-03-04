@@ -7,22 +7,30 @@
     <title>Code Quiz</title>
 </head>
 <body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Hi-Scores</a>
+        </li>
+      </ul>
     <div class= "row">
         <div class= "col-md-3"></div>
         <div class= "col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <span id="score">Score</span>
-                    <span id="timer">Time Remaining</span> 
+                   <text>Score: <span id="currentScore">0</span></text>
+                   <text style= "float: right"; >Time Remaining:  <span id="timer">120</span></text>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center" id="quiz" >
                   <h5 class="card-title" id="quizQuestions"></h5>
-                  <p class="card-text" id= multi-options>Click below to begin the quiz!</p>
-                  <button type="button" class="btn btn-primary" id="submit-button">Begin</button>
+                  <p class="card-text" id= quiz-body>Click below to begin the quiz!</p>
+                  <div id="options-list" style="padding: 10px;"></div>
+                  <button type="button" class="btn btn-primary" id="start-button">Start</button>
                 </div>
               </div>
         </div>
         <div class= "col-md-3"></div>
     </div>
+
+<script src="./script.js"></script>
 </body>
 </html>
