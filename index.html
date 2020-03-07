@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
     <title>Code Quiz</title>
 </head>
 <body>
@@ -21,9 +25,9 @@
                    <text style= "float: right"; >Time Remaining:  <span id="timer">120</span></text>
                 </div>
                 <div class="card-body text-center" id="quiz" >
-                  <h5 class="card-title" id="quizQuestions"></h5>
+                  <h5 class="card-title" id="Questions"></h5>
                   <p class="card-text" id= quiz-body>Click below to begin the quiz!</p>
-                  <div id="options-list" style="padding: 10px;"></div>
+                  <div id="options-list"></div>
                   <button type="button" class="btn btn-primary" id="start-button">Start</button>
                 </div>
               </div>
