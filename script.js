@@ -1,6 +1,7 @@
 // Global Variables
 var score = 0;
 var secondsLeft = 120;
+var wrongAnswer = -10;
 var currentQuestion = 0;
 var question;
 var choiceA;
@@ -48,9 +49,9 @@ var quizQuestions = [
      "C"],
    
      ["test",
-     "<scripting>", 
-     "<javascript>",
-     "<script>",
+     "<option 1>", 
+     "<option 2>",
+     "<option 3>",
      "B"],
      
 ];
@@ -58,9 +59,8 @@ var quizQuestions = [
 //Creating answer option buttons
 function addChoiceA(){
     var button1 = document.createElement("button");
-    button1.setAttribute("name","choices",)
-    button1.setAttribute("value","A"); 
-    button1.innerText = quizQuestions[currentQuestion][1];
+    button1.setAttribute(name="choices", value="A");
+    button1.innerText = choiceA;
     optionsList.appendChild(button1);
     button1.addEventListener("click", checkAnswer);
     
@@ -69,9 +69,8 @@ function addChoiceA(){
 
 function addChoiceB(){
     var button2 = document.createElement("button");
-    button2.setAttribute("name","choices",)
-    button2.setAttribute("value","B"); 
-    button2.innerText = quizQuestions[currentQuestion][2];
+    button2.setAttribute(name="choices", value="B");
+    button2.innerText = choiceB;
     optionsList.appendChild(button2);
     button2.addEventListener("click", checkAnswer);
     
@@ -80,17 +79,17 @@ function addChoiceB(){
 
 function addChoiceC(){
     var button3 = document.createElement("button");
-    button3.setAttribute("name","choices",)
-    button3.setAttribute("value","C"); 
-    button3.innerText = quizQuestions[currentQuestion][3];
+    button3.setAttribute(name="choices", value="C");
+    button3.innerText = choiceC;
     optionsList.appendChild(button3);
     button3.addEventListener("click", checkAnswer);
     
 }
 
-
+//Generate questions 
 function RenderQuestions() {
-    quiz;
+    document.getElementById("quiz");
+    
     if (currentQuestion >= quizQuestions.length) {
         currentQuestion = 0;
         score = 0;
@@ -101,11 +100,14 @@ function RenderQuestions() {
     choiceB = quizQuestions[currentQuestion][2];
     choiceC = quizQuestions[currentQuestion][3];
     quizBody.innerHTML = question;
+    //addChoiceA();
+    //addChoiceB();
+    //addChoiceC();
     optionsList.innerHTML += "<input type='radio' name='choices' value='A'>" + choiceA + "<br>";
     optionsList.innerHTML += "<input type='radio' name='choices' value='B'>" + choiceB + "<br>";
     optionsList.innerHTML += "<input type='radio' name='choices' value='C'>" + choiceC + "<br><br>";
     optionsList.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
-    
+    optionsList = "";
 }
 
 //Check for correct answer and render next question
@@ -120,6 +122,10 @@ function checkAnswer() {
     if (choice == quizQuestions[currentQuestion][4]) {
         score++;
         setScoreText();
+    }
+
+    else {
+        (secondsLeft - wrongAnswer);
     }
     currentQuestion++;
     RenderQuestions();
